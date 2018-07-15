@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// Para poder redirigir a la web busqueda con el botón
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  // Crear método para buscar heroe
-  buscarHeroe(termino: string) {
-    console.log(termino);
+  // Método para redireccionar a la pagina busqueda con el termino de busqueda
+   buscarHeroe(termino: string) {
+    this.router.navigate(['/busqueda', termino]);
   }
+
 }
