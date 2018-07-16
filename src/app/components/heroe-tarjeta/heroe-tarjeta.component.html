@@ -1,0 +1,17 @@
+<!-- Se crea este componente para las tarjetas de los heroes de manera que no se va a tener q repetir codigo-->
+
+<div class="card animated fadeIn fast">
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-block">
+        <h5 class="card-title">{{ heroe.nombre }}</h5>
+        <p class="card-text"> {{ heroe.bio }}</p>
+        <p class="card-text"><small class="text-muted"> {{ heroe.aparicion }}</small></p>
+    </div>
+
+    <button (click)="verHeroe()" class="btn btn-outline-primary btn-block">Ver más...</button>
+
+    <!-- Enlace que redirecciona al componente HeroeComponent pasándole como parámetro el id del heroe-->
+    <!--<a class="btn btn-outline-primary" [routerLink]="['/heroe',i]">Ver más ...</a>-->
+
+
+</div>

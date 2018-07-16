@@ -5,20 +5,8 @@
 <!-- Tarjeta que se tiene que duplicar en función de la cantidad de heroes-->
 <div class="card-columns">
 
-    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-        <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
-        <div class="card-block">
-            <h5 class="card-title">{{ heroe.nombre }}</h5>
-            <p class="card-text"> {{ heroe.bio }}</p>
-            <p class="card-text"><small class="text-muted"> {{ heroe.aparicion }}</small></p>
-        </div>
-
-        <button (click)="verHeroe(i)" class="btn btn-outline-primary btn-block">Ver más...</button>
-
-        <!-- Enlace que redirecciona al componente HeroeComponent pasándole como parámetro el id del heroe-->
-        <!--<a class="btn btn-outline-primary" [routerLink]="['/heroe',i]">Ver más ...</a>-->
-
-
-    </div>
+    <!-- Se carga el componente heroe-tarjeta (componente hijo) que contiene la tarjeta de un heroe y con ngFor se carga una por cada heroe existente-->
+    <!-- Se necesita mandar información desde aquí al componente hijo heroe-tarjeta: con @Input() y aquí poner [heroe]="heroe"-->
+    <app-heroe-tarjeta [heroe]="heroe" [idx]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
 
 </div>
