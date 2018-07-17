@@ -76,17 +76,23 @@ export class HeroesService {
     buscarHeroes( termino: string): Heroe[] {
       // Se crea un array de heroe vacio
       let heroesArr: Heroe[] = [];
-      
+
       // El parámetro recibido se pasa siempre a minúsculas para buscar
       termino = termino.toLowerCase();
 
       // Se va a recorrer todo el array de heroes para ver cuales corresponden
-      for (let heroe of this.heroes) {
+      for (let i = 0; i < this.heroes.length; i++) {
+
+        let heroe = this.heroes[i];
+
         // Paso a minúscula el nombre de cada heroe
         let nombre = heroe.nombre.toLowerCase();
 
         // Busco en el nombre del heroe una coincidencia y si existe lo agrego al array de heroes creado
         if (nombre.indexOf(termino) >= 0) {
+
+          // Se añade al heroe una propiedad opcional para que tenga el índica servirá para el botón ver más de la búsqueda
+          heroe.idx = i;
           heroesArr.push(heroe);
         }
       }
@@ -104,4 +110,6 @@ export interface Heroe {
     img: string;
     aparicion: string;
     casa: string;
+    // Parámetro opcional para la búsqueda
+    idx?: number;
 }

@@ -6,7 +6,8 @@
 <div class="card-columns">
 
     <!-- Se carga el componente heroe-tarjeta (componente hijo) que contiene la tarjeta de un heroe y con ngFor se carga una por cada heroe existente-->
-    <!-- Se necesita mandar información desde aquí al componente hijo heroe-tarjeta: con @Input() y aquí poner [heroe]="heroe"-->
-    <app-heroe-tarjeta [heroe]="heroe" [idx]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
+    <!-- Se necesita mandar información desde aquí al componente hijo heroe-tarjeta: con @Input() y aquí poner [heroe]="heroe" y [idx]="i"-->
+    <!-- Para escuchar cualquier evento sobre el heroeSeleccionado utilizamos los () (heroeSeleccionado) y se recupera el evento con $event-->
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="heroe" [idx]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
 
 </div>
